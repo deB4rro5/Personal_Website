@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Landing Page - Home Screen</title>
+    <style>
+        body {
+            background-color: #FF4500;
+            color: black;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .explosion {
+            position: relative;
+            display: inline-block;
+            animation: explode 1s forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+            margin-top: 20px;
+        }
+
+        .button {
+            background: linear-gradient(to bottom right, silver, #c0c0c0);
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            margin: 0;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="text">AI is changing the world, don't get left behind</h1>
+    <img src="/home/michaelb/Pictures/wtf.png" alt="Design File" id="design">
+
+    <script>
+        setTimeout(function() {
+            var textElement = document.getElementById('text');
+            textElement.classList.add('explosion');
+            setTimeout(function() {
+                textElement.style.display = 'none';
+                var designImage = document.getElementById('design');
+                designImage.style.display = 'none';
+                var buttonContainer = document.createElement('div');
+                buttonContainer.classList.add('button-container');
+                var servicesButton = document.createElement('button');
+                servicesButton.classList.add('button');
+                servicesButton.innerText = 'Services';
+                buttonContainer.appendChild(servicesButton);
+                var aboutButton = document.createElement('button');
+                aboutButton.classList.add('button');
+                aboutButton.innerText = 'About me';
+                buttonContainer.appendChild(aboutButton);
+                var testimonialsButton = document.createElement('button');
+                testimonialsButton.classList.add('button');
+                testimonialsButton.innerText = 'Testimonials';
+                buttonContainer.appendChild(testimonialsButton);
+                var blogButton = document.createElement('button');
+                blogButton.classList.add('button');
+                blogButton.innerText = 'Blog';
+                buttonContainer.appendChild(blogButton);
+                document.body.appendChild(buttonContainer);
+            }, 1000);
+        }, 5000);
+    </script>
+</body>
+</html>
+
