@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Space Website</title>
+    <style>
+        body {
+            background-color: black;
+            overflow: hidden;
+        }
+
+        #stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        .crawl-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: yellow;
+            font-family: 'Star Jedi', sans-serif;
+            font-size: 24px;
+            text-align: center;
+            white-space: pre-line;
+            animation: crawl 20s linear infinite;
+        }
+
+        .crawl-container p {
+            margin: 0;
+        }
+
+        .crawl-container p:first-child {
+            font-weight: bold;
+            font-size: 48px;
+        }
+
+        @keyframes crawl {
+            0% {
+                transform: translate(-50%, 100%);
+            }
+            100% {
+                transform: translate(-50%, -100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="stars"></div>
+    <div class="crawl-container">
+        <p>AI is changing everything, don't get left behind</p>
+        <p>It is a time of strife and increasing complexity. Businessess are grappling with understanding the actual opporutnities and limitations presented by modern advances in artificial intelligence. However this is difficult to ascertain without people who have significant experience building AI powered products and experiences.</p>
+        <p>This is where I can help your business. I have been building AI powered products for the past seven years. I have built up proprietary frameworks to help ensure the AI products I build are viable, feasible, and delightful. Using these frameworks, I can help your business assess potential vendors, make difficult build/buy decisions, and execute on complex build projects.</p>
+        <p>We stand at the precipice of a platform shift moment to rival the iPhone, social media, or the establishment of the internet itself. Only we can ensure that we usher in an age that is more productive, more efficient, and more ethical. Join with me as we strive to make this the best it can be.</p>
+    </div>
+
+    <script>
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numStars = 100;
+
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.width = `${Math.random() * 2}px`;
+                star.style.height = star.style.width;
+                starsContainer.appendChild(star);
+            }
+        }
+
+        setTimeout(() => {
+            const crawlContainer = document.querySelector('.crawl-container');
+            crawlContainer.innerHTML = '<p style="font-weight: bold; font-size: 72px;">AI is changing everything, don\'t get left behind</p>';
+                crawlContainer.innerHTML += `
+                    <p>It is a time of strife and increasing complexity. Businessess are grappling with understanding the actual opporutnities and limitations presented by modern advances in artificial intelligence. However this is difficult to ascertain without people who have significant experience building AI powered products and experiences.</p>
+                    <p>This is where I can help your business. I have been building AI powered products for the past seven years. I have built up proprietary frameworks to help ensure the AI products I build are viable, feasible, and delightful. Using these frameworks, I can help your business assess potential vendors, make difficult build/buy decisions, and execute on complex build projects.</p>
+                    <p>We stand at the precipice of a platform shift moment to rival the iPhone, social media, or the establishment of the internet itself. Only we can ensure that we usher in an age that is more productive, more efficient, and more ethical. Join with me as we strive to make this the best it can be.</p>
+                `;
+            
+        }, 3000);
+
+        createStars();
+    </script>
+    <audio autoplay>
+        <source src="star-wars-theme.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>
